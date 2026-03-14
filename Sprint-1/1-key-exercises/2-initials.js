@@ -1,4 +1,4 @@
-let firstName = "Creola";
+let firstName = "Creole";
 let middleName = "Katherine";
 let lastName = "Johnson";
 
