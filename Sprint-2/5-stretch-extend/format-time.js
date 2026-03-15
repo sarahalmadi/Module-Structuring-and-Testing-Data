@@ -29,3 +29,4 @@ console.assert(
   currentOutput3 === targetOutput3,
   `current output3: ${currentOutput3}, target output: ${targetOutput3}`
 );
+console.log("All tests passed!");
