@@ -14,3 +14,9 @@
 // You will need to come up with an appropriate name for the function
 // Use the MDN string documentation to help you find a solution
 // This might help https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
+const convertToUpperSnakeCase = (str) => {
+  // return the string in UPPER_SNAKE_CASE
+  return str.toUpperCase().replaceAll(" ", "_");
+};
+console.log(convertToUpperSnakeCase("hello there")); // should return "HELLO_THERE"
+console.log(convertToUpperSnakeCase("lord of the rings")); // should return "LORD_OF_THE_RINGS"
