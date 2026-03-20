@@ -4,29 +4,30 @@
 
 function formatAs12HourClock(time) {
   const hours = Number(time.slice(0, 2));
-  if (hours > 12) {
-    return `${hours - 12}:00 pm`;
+  const minutes = time.slice(3, 5);
+
+  if (hours === 0) {
+    return `00:${minutes} am`;
   }
-  return `${time} am`;
+
+  if (hours === 12) {
+    return `12:${minutes} pm`;
+  }
+
+  if (hours > 12) {
+    const newHour = String(hours - 12).padStart(2, "0");
+    return `${newHour}:${minutes} pm`;
+  }
+
+  const newHour = String(hours).padStart(2, "0");
+  return `${newHour}:${minutes} am`;
 }
-
-const currentOutput = formatAs12HourClock("08:00");
-const targetOutput = "08:00 am";
-console.assert(
-  currentOutput === targetOutput,
-  `current output: ${currentOutput}, target output: ${targetOutput}`
-);
-
-const currentOutput2 = formatAs12HourClock("23:00");
-const targetOutput2 = "11:00 pm";
-console.assert(
-  currentOutput2 === targetOutput2,
-  `current output: ${currentOutput2}, target output: ${targetOutput2}`
-);
-const currentOutput3 = formatAs12HourClock("19:00");
-const targetOutput3 = "7:00 pm";
-console.assert(
-  currentOutput3 === targetOutput3,
-  `current output3: ${currentOutput3}, target output: ${targetOutput3}`
-);
-console.log("All tests passed!");
+console.assert(formatAs12HourClock("01:00") === "01:00 am");
+console.assert(formatAs12HourClock("11:59") === "11:59 am");
+console.assert(formatAs12HourClock("12:59") === "12:59 pm");
+console.assert(formatAs12HourClock("13:01") === "01:01 pm");
+console.assert(formatAs12HourClock("00:01") === "00:01 am");
+console.assert(formatAs12HourClock("23:59") === "11:59 pm");
+console.assert(formatAs12HourClock("10:05") === "10:05 am");
+console.assert(formatAs12HourClock("20:05") === "08:05 pm");
+console.assert(formatAs12HourClock("00:00") === "00:00 am");
