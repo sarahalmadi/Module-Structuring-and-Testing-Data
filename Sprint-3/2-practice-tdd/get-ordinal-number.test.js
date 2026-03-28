@@ -39,3 +39,11 @@ test("should return '13th' for 13", () => {
 test("should return '21st' for 21", () => {
   expect(getOrdinalNumber(21)).toEqual("21st");
 });
+
+test("should return '22nd' for 22", () => {
+  expect(getOrdinalNumber(22)).toEqual("22nd");
+});
+
+test("should return '23rd' for 23", () => {
+  expect(getOrdinalNumber(23)).toEqual("23rd");
+});
