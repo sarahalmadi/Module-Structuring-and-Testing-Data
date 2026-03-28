@@ -13,10 +13,12 @@ function getCardValue(card) {
   if (rank === "A") return 11;
   if (["J", "Q", "K", "10"].includes(rank)) return 10;
   const numericValue = parseInt(rank, 10);
+
+  if (isNaN(numericValue)) {
+    throw new Error("Invalid card rank.");
+  }
+
   return numericValue;
-}
-if (isNaN(getCardValue("14♠"))) {
-  throw new Error("Invalid card rank.");
 }
 
 // The line below allows us to load the getCardValue function into tests in other files.
