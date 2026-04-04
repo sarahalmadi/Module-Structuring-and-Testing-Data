@@ -14,8 +14,8 @@ function getCardValue(card) {
   if (["J", "Q", "K", "10"].includes(rank)) return 10;
   const numericValue = parseInt(rank, 10);
 
-  if (isNaN(numericValue)) {
-    throw new Error("Invalid card rank.");
+  if (isNaN(numericValue) || numericValue < 2 || numericValue > 10) {
+    return "Error: Invalid card rank.";
   }
 
   return numericValue;
@@ -75,4 +75,5 @@ assertEquals(aceofHearts, 11);
 // When the function is called with such a card,
 // Then it should throw an error indicating "Invalid card rank."
 const invalidCard = getCardValue("14♠");
-assertEquals(invalidCard, "Invalid card rank");
+assertEquals(invalidCard, "Error: Invalid card rank.");
+console.log(getCardValue("14♠"));
